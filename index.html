@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillBridge | Student Job-Readiness Checker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <a class="logo" href="#home">Skill<span>Bridge</span></a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#assessment">Assessment</a>
+      <a href="#dashboard">Dashboard</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <p class="eyebrow">YOUR CAREER JOURNEY STARTS HERE</p>
+      <h1>Bridge Your Skills.<br><span>Build Your Future.</span></h1>
+      <p>Discover your strengths, identify skills to improve, and prepare for your dream career with SkillBridge.</p>
+      <a class="btn" href="#assessment">Start Assessment →</a>
+    </div>
+    <div class="hero-card">
+      <div class="hero-icon">✦</div>
+      <h2>Your future starts with a skill</h2>
+      <p>Assess your skills, understand your gaps, and keep growing.</p>
+      <div class="mini-progress"><span></span></div>
+      <small>Your journey, one step at a time</small>
+    </div>
+  </section>
+
+  <section class="features">
+    <article class="feature">
+      <span>◎</span>
+      <h3>Assess Skills</h3>
+      <p>Check your current knowledge for your chosen career.</p>
+    </article>
+    <article class="feature">
+      <span>↗</span>
+      <h3>Find Skill Gaps</h3>
+      <p>Understand which skills need more practice.</p>
+    </article>
+    <article class="feature">
+      <span>◇</span>
+      <h3>Build Projects</h3>
+      <p>Get project ideas to improve your practical skills.</p>
+    </article>
+  </section>
+
+  <main>
+    <section class="panel" id="assessment">
+      <div class="section-heading">
+        <p class="eyebrow">STEP 01 · KNOW YOURSELF</p>
+        <h2>Student Skill Assessment</h2>
+        <p>Answer honestly to get useful recommendations.</p>
+      </div>
+
+      <form id="assessmentForm">
+        <div class="form-grid">
+          <div>
+            <label for="studentName">Student name</label>
+            <input id="studentName" type="text" maxlength="60"
+              placeholder="Enter your name" required>
+          </div>
+          <div>
+            <label for="jobRole">Choose your career role</label>
+            <select id="jobRole" required>
+              <option value="Data Analyst">Data Analyst</option>
+              <option value="Web Developer">Web Developer</option>
+              <option value="Python Developer">Python Developer</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="questions"></div>
+
+        <button class="btn" type="submit">Calculate My Readiness →</button>
+      </form>
+    </section>
+
+    <section class="panel" id="dashboard">
+      <div class="section-heading">
+        <p class="eyebrow">STEP 02 · YOUR RESULTS</p>
+        <h2>Your Dashboard</h2>
+        <p>Your assessment results and next steps will appear here.</p>
+      </div>
+
+      <div class="stats">
+        <article class="stat-card">
+          <p>Readiness score</p>
+          <h3 id="score">--%</h3>
+          <div class="progress-track"><div id="scoreBar"></div></div>
+        </article>
+        <article class="stat-card">
+          <p>Selected career</p>
+          <h3 id="resultRole">Not selected</h3>
+        </article>
+        <article class="stat-card">
+          <p>Skills to improve</p>
+          <h3 id="gapCount">--</h3>
+        </article>
+      </div>
+
+      <div class="result-section">
+        <h3>Skill Feedback</h3>
+        <p id="summary" class="muted">Complete your assessment to see feedback.</p>
+        <div id="feedback"></div>
+      </div>
+
+      <div class="result-section">
+        <h3>Your Recommended Projects</h3>
+        <ul id="projects" class="result-list">
+          <li>Project suggestions will appear after assessment.</li>
+        </ul>
+      </div>
+
+      <div class="result-section">
+        <div class="history-heading">
+          <h3>Assessment History</h3>
+          <button type="button" id="historyButton" class="btn btn-light">
+            Show History
+          </button>
+        </div>
+        <ul id="history" class="result-list"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="logo footer-logo" href="#home">Skill<span>Bridge</span></a>
+    <p>Student Job-Readiness Checker</p>
+    <p class="footer-small">A student project built with HTML, CSS and JavaScript.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
