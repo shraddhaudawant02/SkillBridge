@@ -13,6 +13,9 @@
       <a href="#home">Home</a>
       <a href="#assessment">Assessment</a>
       <a href="#dashboard">Dashboard</a>
+      <a href="#account">Account</a>
+      <a href="#explore">Explore Projects</a>
+      <a href="#upload">Upload Project</a>
     </nav>
   </header>
 
@@ -46,7 +49,7 @@
     <article class="feature">
       <span>◇</span>
       <h3>Build Projects</h3>
-      <p>Get project ideas to improve your practical skills.</p>
+      <p>Share your work and explore projects made by other students.</p>
     </article>
   </section>
 
@@ -62,8 +65,7 @@
         <div class="form-grid">
           <div>
             <label for="studentName">Student name</label>
-            <input id="studentName" type="text" maxlength="60"
-              placeholder="Enter your name" required>
+            <input id="studentName" type="text" maxlength="60" placeholder="Enter your name" required>
           </div>
           <div>
             <label for="jobRole">Choose your career role</label>
@@ -74,9 +76,7 @@
             </select>
           </div>
         </div>
-
         <div id="questions"></div>
-
         <button class="btn" type="submit">Calculate My Readiness →</button>
       </form>
     </section>
@@ -87,7 +87,6 @@
         <h2>Your Dashboard</h2>
         <p>Your assessment results and next steps will appear here.</p>
       </div>
-
       <div class="stats">
         <article class="stat-card">
           <p>Readiness score</p>
@@ -103,28 +102,131 @@
           <h3 id="gapCount">--</h3>
         </article>
       </div>
-
       <div class="result-section">
         <h3>Skill Feedback</h3>
         <p id="summary" class="muted">Complete your assessment to see feedback.</p>
         <div id="feedback"></div>
       </div>
-
       <div class="result-section">
         <h3>Your Recommended Projects</h3>
         <ul id="projects" class="result-list">
           <li>Project suggestions will appear after assessment.</li>
         </ul>
       </div>
-
       <div class="result-section">
         <div class="history-heading">
           <h3>Assessment History</h3>
-          <button type="button" id="historyButton" class="btn btn-light">
-            Show History
-          </button>
+          <button type="button" id="historyButton" class="btn btn-light">Show History</button>
         </div>
         <ul id="history" class="result-list"></ul>
+      </div>
+    </section>
+
+    <section class="panel" id="account">
+      <div class="section-heading">
+        <p class="eyebrow">SKILLBRIDGE COMMUNITY</p>
+        <h2>Your Account</h2>
+        <p>Create an account or log in to submit projects and manage your uploads.</p>
+      </div>
+      <div id="accountStatus" class="status-message" aria-live="polite">Checking your account...</div>
+      <div id="authForms" class="auth-grid">
+        <form id="signupForm" class="sub-panel">
+          <h3>Create an account</h3>
+          <label for="signupName">Full name</label>
+          <input id="signupName" type="text" maxlength="80" autocomplete="name" required>
+          <label for="signupEmail">Email</label>
+          <input id="signupEmail" type="email" autocomplete="email" required>
+          <label for="signupPassword">Password (at least 6 characters)</label>
+          <input id="signupPassword" type="password" minlength="6" autocomplete="new-password" required>
+          <button class="btn" type="submit">Sign Up</button>
+        </form>
+        <form id="loginForm" class="sub-panel">
+          <h3>Log in</h3>
+          <label for="loginEmail">Email</label>
+          <input id="loginEmail" type="email" autocomplete="email" required>
+          <label for="loginPassword">Password</label>
+          <input id="loginPassword" type="password" autocomplete="current-password" required>
+          <button class="btn" type="submit">Log In</button>
+        </form>
+      </div>
+      <div id="signedInPanel" class="signed-in-panel" hidden>
+        <p>Signed in as <strong id="signedInEmail"></strong></p>
+        <button id="logoutButton" class="btn btn-light" type="button">Log Out</button>
+      </div>
+    </section>
+
+    <section class="panel" id="upload">
+      <div class="section-heading">
+        <p class="eyebrow">SHARE YOUR WORK</p>
+        <h2>Upload a Project</h2>
+        <p>Submit your project for review. It will appear in Explore Projects after approval.</p>
+      </div>
+      <form id="projectForm" class="project-form">
+        <div class="form-grid">
+          <div>
+            <label for="projectTitle">Project title</label>
+            <input id="projectTitle" type="text" maxlength="100" required>
+          </div>
+          <div>
+            <label for="projectCategory">Category</label>
+            <select id="projectCategory" required>
+              <option value="">Select category</option>
+              <option>Data Analytics</option>
+              <option>Web Development</option>
+              <option>Python</option>
+              <option>Machine Learning</option>
+              <option>IoT</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <label for="projectDescription">Project description</label>
+        <textarea id="projectDescription" rows="4" maxlength="1500" required></textarea>
+        <label for="projectImage">Project image (JPG, PNG or WebP; max 5 MB)</label>
+        <input id="projectImage" type="file" accept="image/jpeg,image/png,image/webp" required>
+        <label for="projectFile">Project file (PDF or ZIP; max 25 MB)</label>
+        <input id="projectFile" type="file" accept=".pdf,.zip,application/pdf,application/zip,application/x-zip-compressed" required>
+        <label for="projectUrl">Project link (optional, e.g. GitHub)</label>
+        <input id="projectUrl" type="url" placeholder="https://github.com/your-project">
+        <button class="btn" type="submit">Submit Project</button>
+        <p class="muted form-note">You must be logged in to submit a project. Submissions are saved with Pending approval status.</p>
+      </form>
+      <div id="uploadMessage" class="status-message" aria-live="polite"></div>
+    </section>
+
+    <section class="panel" id="myProjects">
+      <div class="section-heading">
+        <p class="eyebrow">YOUR CONTRIBUTIONS</p>
+        <h2>My Projects</h2>
+        <p>Track the projects you have submitted and their approval status.</p>
+      </div>
+      <div id="myProjectsList" class="project-grid">
+        <p class="muted">Log in to view your submissions.</p>
+      </div>
+    </section>
+
+    <section class="panel" id="explore">
+      <div class="section-heading">
+        <p class="eyebrow">LEARN FROM EACH OTHER</p>
+        <h2>Explore Projects</h2>
+        <p>Discover projects submitted by the SkillBridge student community.</p>
+      </div>
+      <div class="explore-controls">
+        <input id="projectSearch" type="search" placeholder="Search projects by title or description">
+        <select id="categoryFilter">
+          <option value="">All categories</option>
+          <option>Data Analytics</option>
+          <option>Web Development</option>
+          <option>Python</option>
+          <option>Machine Learning</option>
+          <option>IoT</option>
+          <option>Other</option>
+        </select>
+        <button id="refreshProjects" type="button" class="btn btn-light">Refresh</button>
+      </div>
+      <div id="exploreMessage" class="status-message" aria-live="polite"></div>
+      <div id="exploreProjectsList" class="project-grid">
+        <p class="muted">Loading approved projects...</p>
       </div>
     </section>
   </main>
@@ -132,9 +234,10 @@
   <footer>
     <a class="logo footer-logo" href="#home">Skill<span>Bridge</span></a>
     <p>Student Job-Readiness Checker</p>
-    <p class="footer-small">A student project built with HTML, CSS and JavaScript.</p>
+    <p class="footer-small">A student project built with HTML, CSS, JavaScript and Supabase.</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="script.js"></script>
 </body>
 </html>
